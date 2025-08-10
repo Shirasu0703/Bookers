@@ -4,7 +4,7 @@
 <h4>Body</h4>
 <p><%= @book.body %></p>
 
-<$= book_to "Edit", edit_book_path(@book.id) %>
-<%= book_to "destroy", destroy_book_path(@book.id), method: :delete, "data-confirm" => "Are you sure?" %>
+<%= link_to "Edit", edit_book_path(@book.id) %>
+<%= link_to "Back", edit_book_path(@book.id) %>
 
 
