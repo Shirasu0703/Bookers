@@ -11,6 +11,23 @@
   </head>
 
   <body>
+  <header>
+  <h1 class="head">ようこそ Bookersへ! </h1>
+  </header>
+
+  <main>
+    <h6 class="main-body">Bookersでは、さまざまな書籍に関するあなたの意見や<br>
+      印象を共有し、交換することができます
+    </h6>
     <%= yield %>
+  </main>
+
+  <nav>
+    <ul class="nav-list">
+      <li class="nav-list-item">
+        <%= link_to "start", books_path %>
+      </li>
+    </ul>
+  </nav>
   </body>
 </html>
