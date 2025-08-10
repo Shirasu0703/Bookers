@@ -1,3 +1,16 @@
+<h1>Books</h1>
+<div class="main posts-index">
+  <div class="container">
+    <% @books.each do |book| %>
+      <div class="books-index-item">
+          <div class="book-name">
+            <%= book.name %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <div class="book-wrap">
 <% @books.each do |book| %>
   <div class="book-comment">
@@ -5,31 +18,22 @@
     <span class="book-title"><%=link_to book.title, book_path(book.id) %></span>
   </div>
 <% end %>
+  <%= link_to "Destroy", destroy_book_path(@book.id), method: :delete, "data-confirm" => "Are you sure ?" %>
 </div>
-
-
-<h1>Books</h1>
-
-<% @books.each do |book| %>
-
-  <p>Title</p>
-  <span>
-  <%= link_to book.title, book_path(book.id) %>
-  </span>
-
-  <% end %>
 
 
 
   <h1>New book</h1>
-<% if @book.errors.any? %>
-  <h2><%= @book.errors.count %>errors prohibited this book from being saved:</h2>
+  <% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this book from being saved
   <ul>
-    <% @book.errors.full_messages.each do |error| %>
-      <li><%= error_message %></li>
+    <% @book.errors.full_messages.each do |message| %> 
+      <li><%= message %></li> 
     <% end %>
   </ul>
 <% end %>
+
+
 
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
   <h4>Title</h4>
@@ -41,3 +45,4 @@
   <%= f.submit 'Create Book' %>
   <% end %>
 
+  
