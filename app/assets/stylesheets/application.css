@@ -20,28 +20,22 @@
   box-sizing: border-box;
  }
 
- header{
-  width: 100%;
-  padding: 15px 0;
-  text-align: left;
- }
-
  main{
   width: 90%;
   padding: 0 0 10px 0;;
   text-align: left;
  }
 
- nav{
-  width: 90%;
-  margin: 0 auto;
+ .flash-message{
+  border-radius: 5px;
+  padding: 15px 20px;
+  margin: 15px 0px;
  }
 
- .nav-list{
-text-align: left;
-margin: 0 auto;
+ .flash-message.notice{
+  color: mediumspringgreen;
  }
 
- .nav-list-item{
-  list-style: none;
+ .flash-message.alert{
+  color: red;
  }
