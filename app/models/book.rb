@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  has_one_attached :books
+  has_one_attached :message
 
   validates :title, presence: true
   validates :body, presence: true
