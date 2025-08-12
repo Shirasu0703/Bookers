@@ -20,6 +20,15 @@
   box-sizing: border-box;
  }
 
+ h2{
+  padding:15px;
+ }
+
+ h6{
+  padding: 10px;
+ }
+
+
  main{
   width: 90%;
   padding: 0 0 10px 0;;

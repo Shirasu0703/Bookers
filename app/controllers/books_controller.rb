@@ -6,12 +6,12 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
+    flash[:notice] = "Book was successfully created."
     redirect_to book_path(@book.id)
-    flash.now[:notice] = "Book was successfully created."
     else
-    flash.now[:alert] = "error"
+    @error_messages = @book.errors.full_messages.join(",")
     @books = Book.all
-    render :new
+    render :index
   end
 end
 
@@ -32,16 +32,24 @@ end
   end
 
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to book_path(book.id)
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      flash[:notice] = "Book was successfully updated."
+    redirect_to book_path(@book)
+    else
+      render :edit
+    end
   end
 
   def destroy
     book = Book.find(params[:id])
     book.images.purge
-    book.destroy
-    redirect_to '/books'
+  if book.destroy
+    flash[:notice] = "Book was successfully deleted."
+  else
+    flash[:alert] = "Failed to delete the book."
+  end
+    redirect_to books_path
   end
 
 
