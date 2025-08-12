@@ -1,4 +1,8 @@
 class BooksController < ApplicationController
+  def top
+    redirect_to top_path
+  end
+
   def new
     @book = Book.new
   end
@@ -57,5 +61,4 @@ end
   def book_params
     params.require(:book).permit(:title, :body)
   end
-
 end
